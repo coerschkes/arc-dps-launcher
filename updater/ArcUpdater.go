@@ -1,12 +1,11 @@
 package updater
 
 import (
+	"coerschkes/arcdps/launcher/utils"
 	"io/ioutil"
 	"log"
 	"os"
 	"strings"
-
-	"github.com/coerschkes/arcdps/launcher/github.com/coerschkes/arcdps/launcher/utils"
 )
 
 const binFolderPath = "bin"
