@@ -23,7 +23,7 @@ func DownloadFile(url string, filePath string) {
 	if _, err := io.Copy(outputFile, readCloser); err != nil {
 		panic(err)
 	} else {
-		log.Println("DOWNLOADED: " + url + "' AS '" + filePath + "'.")
+		log.Println("Downloaded file: " + url)
 	}
 }
 

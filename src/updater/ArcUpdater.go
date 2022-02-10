@@ -36,8 +36,8 @@ func init() {
 	}
 }
 
-func NewArcUpdater() IArcUpdater {
-	return &ArcUpdater{}
+func NewArcUpdater() ArcUpdater {
+	return ArcUpdater{}
 }
 
 func (impl *ArcUpdater) IsInstalled() bool {
@@ -46,7 +46,7 @@ func (impl *ArcUpdater) IsInstalled() bool {
 }
 
 func (impl *ArcUpdater) IsUpToDate() bool {
-	return impl.parseChecksum() != utils.CalculateChecksum(impl.installationPath())
+	return impl.parseChecksum() == utils.CalculateChecksum(impl.installationPath())
 }
 
 func (impl *ArcUpdater) ChecksumFilePath() string {
@@ -62,12 +62,12 @@ func (impl *ArcUpdater) TempDirPath() string {
 }
 
 func (impl *ArcUpdater) DownloadLatestVersion() {
-	log.Println("Downloading latest d3d9.dll..")
+	log.Println("Downloading latest arc-dps version")
 	utils.DownloadFile(d3d9Url, impl.installationPath())
 }
 
 func (impl *ArcUpdater) DownloadChecksumFile() {
-	log.Println("Downloading checksum file..")
+	log.Println("Downloading arcdps checksum file")
 	utils.DownloadFile(d3d9Md5Url, impl.ChecksumFilePath())
 }
 
