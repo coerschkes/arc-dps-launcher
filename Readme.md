@@ -26,7 +26,7 @@ Simply download the pre-compiled binaries (arc-dps-launcher.exe) and place it in
 
 ### Self-compiled binaries:
 
-For those of you being familiar with coding or at least having a little understanding of it and the ones being sceptic about downloading and executing pre-compiled binaries, I got you covered ;) Before you can compile it yourself you obviously need to install GO. I recommend following the steps on https://go.dev/doc/install. Once GO is installed you are almost ready to GO hrhr.  Just clone the repository/download it as a zip, navigate to the ArcLauncher.go file and open a terminal. Type in 
+For those of you being familiar with coding or at least having a little understanding of it and the ones being sceptic about downloading and executing pre-compiled binaries, I got you covered ;) Before you can compile it yourself you obviously need to install GO. I recommend following the steps on https://go.dev/doc/install. Once GO is installed you are almost ready to GO hrhr.  Just clone the repository/download it as a zip, navigate to the Main.go file and open a terminal. Type in 
 
     go build
 
