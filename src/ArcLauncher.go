@@ -9,6 +9,10 @@ import (
 	"github.com/coerschkes/arc-dps-launcher/src/utils"
 )
 
+/*
+	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
+*/
+
 var tmpDir string
 var arcUpdater updater.ArcUpdater
 

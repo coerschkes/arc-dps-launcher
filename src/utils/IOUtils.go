@@ -9,6 +9,10 @@ import (
 )
 
 /*
+	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
+*/
+
+/*
 	Creates a temporary directory inside of the specified root folder.
 
 	@param rootDir - path of the root directory

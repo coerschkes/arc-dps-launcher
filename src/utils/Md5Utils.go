@@ -8,6 +8,10 @@ import (
 )
 
 /*
+	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
+*/
+
+/*
 	Calculates the checksum of a given file.
 
 	@param - the path to the file
