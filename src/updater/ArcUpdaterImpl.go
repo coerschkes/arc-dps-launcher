@@ -2,10 +2,10 @@ package updater
 
 import (
 	"io/ioutil"
-	"log"
 	"os"
 	"strings"
 
+	"github.com/coerschkes/arc-dps-launcher/src/logging"
 	"github.com/coerschkes/arc-dps-launcher/src/utils"
 )
 
@@ -20,8 +20,15 @@ import (
 	that can be cleaned afterwards.
 
 */
+
 type ArcUpdaterImpl struct {
 	tmpDir string
+}
+
+var logger logging.Logger
+
+func init() {
+	logger = logging.GetLogger()
 }
 
 func NewArcUpdater(tmpDir string) ArcUpdater {
@@ -46,12 +53,12 @@ func (impl *ArcUpdaterImpl) installationPath() string {
 }
 
 func (impl *ArcUpdaterImpl) DownloadLatestVersion() {
-	log.Println("Downloading latest arc-dps version")
+	logger.Log("Downloading latest arc-dps version")
 	utils.DownloadFile(d3d9Url, impl.installationPath())
 }
 
 func (impl *ArcUpdaterImpl) DownloadChecksumFile() {
-	log.Println("Downloading arcdps checksum file")
+	logger.Log("Downloading arcdps checksum file")
 	utils.DownloadFile(d3d9Md5Url, impl.ChecksumFilePath())
 }
 

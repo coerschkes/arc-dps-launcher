@@ -2,15 +2,21 @@ package utils
 
 import (
 	"io"
-	"log"
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/coerschkes/arc-dps-launcher/src/logging"
 )
 
 /*
 	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
 */
+var logger logging.Logger
+
+func init() {
+	logger = logging.GetLogger()
+}
 
 /*
 	Creates a temporary directory inside of the specified root folder.
@@ -40,7 +46,7 @@ func DownloadFile(url string, filePath string) {
 			if _, err := io.Copy(file, body); err != nil {
 				panic(err)
 			} else {
-				log.Println("Downloaded file: " + url)
+				logger.Log("Downloaded file: " + url)
 			}
 		})
 	})
