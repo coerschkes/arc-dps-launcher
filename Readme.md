@@ -22,7 +22,7 @@ I developed a lot of versions of this idea in the past few years starting with a
 
 ### Pre-compiled binaries:
 
-Simply download the pre-compiled binaries (arc-dps-launcher.exe) and place it in the same folder your Gw2.exe is located and your ready to go :) If you want the fancy way create a link on your desktop so you can launch GuildWars2 with the arc-dps-updater from there.
+Simply download the latest pre-compiled binaries from the release-section and place it in the same folder your Gw2.exe is located and your ready to go :) If you want the fancy way create a link on your desktop so you can launch GuildWars2 with the arc-dps-updater from there.
 
 ### Self-compiled binaries:
 
