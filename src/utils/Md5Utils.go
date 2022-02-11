@@ -19,7 +19,7 @@ import (
 */
 func CalculateChecksum(path string) string {
 	algorithm := md5.New()
-	operateOnFile(path, func(file *os.File) {
+	OperateOnFile(path, func(file *os.File) {
 		if _, err := io.Copy(algorithm, file); err != nil {
 			panic(err)
 		}

@@ -13,11 +13,14 @@ import (
 	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
 */
 
+/*
+	The implementation of the ArcUpdater interface.
+
+	Needs a storage location for downloading the checksum file. In best case uses a temporary directory
+	that can be cleaned afterwards.
+
+*/
 type ArcUpdaterImpl struct {
-	/*
-		Needs a storage location for downloading the checksum file. In best case uses a temporary directory
-		that can be cleaned afterwards.
-	*/
 	tmpDir string
 }
 

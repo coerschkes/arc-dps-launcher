@@ -36,7 +36,7 @@ func CreateTempFolder(rootDir string) string {
 */
 func DownloadFile(url string, filePath string) {
 	operateOnResponseBody(strings.ReplaceAll(url, "\\", "/"), func(body io.ReadCloser) {
-		operateOnFile(filePath, func(file *os.File) {
+		OperateOnFile(filePath, func(file *os.File) {
 			if _, err := io.Copy(file, body); err != nil {
 				panic(err)
 			} else {
@@ -46,20 +46,34 @@ func DownloadFile(url string, filePath string) {
 	})
 }
 
+/*
+	Opens or creates and opens a file at the specified path. Executes a defined function on the opened file.
+	Closes the file afterwards.
+
+	@param path - the path to the file
+	@param f - the function that will be executed on the file
+*/
+func OperateOnFile(path string, f func(file *os.File)) {
+	if file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE, 0666); err != nil {
+		panic(err)
+	} else {
+		f(file)
+		defer file.Close()
+	}
+}
+
+/*
+	Downloads the content of a given url. Executes a defined function on the response body.
+	Closes the response body afterwards.
+
+	@param url - the url of the content to be downloaded
+	@param f - the function that will be executed on the response body
+*/
 func operateOnResponseBody(url string, f func(body io.ReadCloser)) {
 	if resp, err := http.Get(url); err != nil {
 		panic(err)
 	} else {
 		f(resp.Body)
 		defer resp.Body.Close()
-	}
-}
-
-func operateOnFile(path string, f func(file *os.File)) {
-	if file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE, 0666); err != nil {
-		panic(err)
-	} else {
-		f(file)
-		defer file.Close()
 	}
 }
