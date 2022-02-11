@@ -15,14 +15,14 @@ I developed a lot of versions of this idea in the past few years starting with a
 * Easy installation 
 * Installs Arc-Dps if necessary
 * Keeps up to date version of Arc-Dps
-* Launches GuildWars2 (coming soon!)
+* Launches GuildWars2
 * Start-Screen (coming soon!)
 
 ## Installation
 
 ### Pre-compiled binaries:
 
-Simply download the latest pre-compiled binaries from the release-section and place it in the same folder your Gw2.exe is located and your ready to go :) If you want the fancy way create a link on your desktop so you can launch GuildWars2 with the arc-dps-updater from there (coming soon!).
+Simply download the latest pre-compiled binaries from the release-section and place it in the same folder your Gw2.exe is located and your ready to go :) If you want the fancy way create a link on your desktop so you can launch GuildWars2 with the arc-dps-updater from there.
 
 ### Self-compiled binaries:
 
