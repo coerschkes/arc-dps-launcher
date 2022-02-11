@@ -31,7 +31,3 @@ For those of you being familiar with coding or at least having a little understa
     go build
 
 and it should compile the binaries. From here its just the same steps as for the pre-compiled binaries, cheers! :) 
-
-## Changelog
-
-* v1.0: First Version of the updater :) 
