@@ -9,7 +9,7 @@ import (
 	"github.com/coerschkes/arc-dps-launcher/src/utils"
 )
 
-const binFolderPath = "bin"
+const binFolderPath = "bin64"
 const d3d9Name = "d3d9.dll"
 const d3d9Md5Name = "d3d9.dll.md5sum"
 const d3d9Url = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll"
