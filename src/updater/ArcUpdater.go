@@ -1,80 +1,44 @@
 package updater
 
-import (
-	"io/ioutil"
-	"log"
-	"os"
-	"strings"
-
-	"github.com/coerschkes/arc-dps-launcher/src/utils"
-)
-
-const binFolderPath = "bin64"
+/*
+	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
+*/
+const Gw2Exe = "Gw2-64.exe"
+const BinFolderPath = "bin64"
 const d3d9Name = "d3d9.dll"
 const d3d9Md5Name = "d3d9.dll.md5sum"
 const d3d9Url = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll"
 const d3d9Md5Url = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll.md5sum"
 
-type IArcUpdater interface {
+type ArcUpdater interface {
+	/*
+		Checks wether arc-dps is installed or not.
+
+		@return true if the d3d9.dll file is found in the bin64 directory
+	*/
 	IsInstalled() bool
+
+	/*
+		Checks wether arc-dps is up to date or not.
+
+		@return true if the d3d9.dll file has the same checksum as the d3d9.dll.md5sum file
+	*/
 	IsUpToDate() bool
+
+	/*
+		Calculates the path of the d3d9.dll.md5sum file
+
+		@return the path of the d3d9.dll.md5sum file
+	*/
 	ChecksumFilePath() string
-	TempDirPath() string
+
+	/*
+		Downloads the latest version of the d3d9.dll file.
+	*/
 	DownloadLatestVersion()
+
+	/*
+		Downloads the latest version of the d3d9.dll.md5sum file.
+	*/
 	DownloadChecksumFile()
-}
-
-type ArcUpdater struct{}
-
-var tmpDir string
-
-func init() {
-	if dir, err := os.MkdirTemp(binFolderPath, "tmp"); err != nil {
-		panic(err)
-	} else {
-		tmpDir = dir
-	}
-}
-
-func NewArcUpdater() ArcUpdater {
-	return ArcUpdater{}
-}
-
-func (impl *ArcUpdater) IsInstalled() bool {
-	_, err := os.Open(impl.installationPath()) //TODO: check if necessary to close
-	return err == nil
-}
-
-func (impl *ArcUpdater) IsUpToDate() bool {
-	return impl.parseChecksum() == utils.CalculateChecksum(impl.installationPath())
-}
-
-func (impl *ArcUpdater) ChecksumFilePath() string {
-	return tmpDir + "\\" + d3d9Md5Name
-}
-
-func (impl *ArcUpdater) installationPath() string {
-	return binFolderPath + "\\" + d3d9Name
-}
-
-func (impl *ArcUpdater) TempDirPath() string {
-	return tmpDir
-}
-
-func (impl *ArcUpdater) DownloadLatestVersion() {
-	log.Println("Downloading latest arc-dps version")
-	utils.DownloadFile(d3d9Url, impl.installationPath())
-}
-
-func (impl *ArcUpdater) DownloadChecksumFile() {
-	log.Println("Downloading arcdps checksum file")
-	utils.DownloadFile(d3d9Md5Url, impl.ChecksumFilePath())
-}
-
-func (impl *ArcUpdater) parseChecksum() string {
-	content, err := ioutil.ReadFile(impl.ChecksumFilePath())
-	if err != nil {
-		panic(err)
-	}
-	return strings.Split(string(content), " ")[0]
 }

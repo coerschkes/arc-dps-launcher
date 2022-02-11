@@ -7,16 +7,18 @@ import (
 	"os"
 )
 
+/*
+	Calculates the checksum of a given file.
+
+	@param - the path to the file
+	@return the checksum of the file
+*/
 func CalculateChecksum(path string) string {
-	if file, err := os.Open(path); err != nil {
-		panic(err)
-	} else {
-		defer file.Close()
-		algorithm := md5.New()
+	algorithm := md5.New()
+	operateOnFile(path, func(file *os.File) {
 		if _, err := io.Copy(algorithm, file); err != nil {
 			panic(err)
-		} else {
-			return fmt.Sprintf("%x", algorithm.Sum(nil))
 		}
-	}
+	})
+	return fmt.Sprintf("%x", algorithm.Sum(nil))
 }
