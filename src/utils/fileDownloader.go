@@ -31,6 +31,7 @@ func DownloadFile(url string, path string) {
 	operateOnResponseBody(strings.ReplaceAll(url, "\\", "/"), func(body io.ReadCloser) {
 		OperateOnFile(path, func(file *os.File) {
 			if _, err := io.Copy(file, body); err != nil {
+				fdLogger.LogError(err)
 				panic(err)
 			} else {
 				fdLogger.Log("Downloaded file: " + url)
@@ -48,6 +49,7 @@ func DownloadFile(url string, path string) {
 */
 func operateOnResponseBody(url string, f func(body io.ReadCloser)) {
 	if resp, err := http.Get(url); err != nil {
+		fdLogger.LogError(err)
 		panic(err)
 	} else {
 		f(resp.Body)

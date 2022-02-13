@@ -65,6 +65,7 @@ func (au ArcUpdaterImpl) installationPath() string {
 func (au ArcUpdaterImpl) parseChecksum() string {
 	content, err := ioutil.ReadFile(au.ChecksumFilePath())
 	if err != nil {
+		logger.LogError(err)
 		panic(err)
 	}
 	return strings.Split(string(content), " ")[0] //TODO: check if string can be acessed as array

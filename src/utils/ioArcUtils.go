@@ -5,11 +5,19 @@ import (
 	"fmt"
 	"io"
 	"os"
+
+	"github.com/coerschkes/arc-dps-launcher/src/logging"
 )
 
 /*
 	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
 */
+
+var auLogger logging.Logger
+
+func init() {
+	auLogger = logging.GetLogger("ioArcUtils.go")
+}
 
 /*
 	Creates a temporary directory inside of the specified root folder.
@@ -19,6 +27,7 @@ import (
 */
 func CreateTempFolder(rootDir string) string {
 	if dir, err := os.MkdirTemp(rootDir, "tmp"); err != nil {
+		auLogger.LogError(err)
 		panic(err)
 	} else {
 		return dir
@@ -34,6 +43,7 @@ func CreateTempFolder(rootDir string) string {
 */
 func OperateOnFile(path string, f func(file *os.File)) {
 	if file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE, 0666); err != nil {
+		auLogger.LogError(err)
 		panic(err)
 	} else {
 		f(file)
@@ -51,6 +61,7 @@ func CalculateChecksum(path string) string {
 	algorithm := md5.New()
 	OperateOnFile(path, func(file *os.File) {
 		if _, err := io.Copy(algorithm, file); err != nil {
+			auLogger.LogError(err)
 			panic(err)
 		}
 	})

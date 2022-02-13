@@ -3,16 +3,23 @@ package logging
 type Logger interface {
 
 	/*
-		Logs a message on the default og level.
+		Logs a message.
 
-		@aram message - the message to log
+		@param message - the message to log
 	*/
 	Log(message string)
 
 	/*
-			Sts the output file to the specified file.
+		Logs an error.
 
-		@param path - the path of the output file
+		@param err - the error to log
+	*/
+	LogError(err error)
+
+	/*
+		Sets the output file to te specified fil.
+
+		@param path - the path of the output fie
 	*/
 	SetOutputFile(path string)
 }
