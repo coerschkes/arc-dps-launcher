@@ -13,8 +13,6 @@ import (
 	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
 */
 
-const LOG_FILE = "arc-launcher.log"
-
 var tmpDir string
 var arcUpdater updater.ArcUpdater
 var logger logging.Logger
@@ -23,9 +21,8 @@ func init() {
 	tmpDir = utils.CreateTempFolder(updater.BinFolderPath)
 	arcUpdater = updater.NewArcUpdater(tmpDir)
 	logger = logging.GetLogger("main.go")
-	logger.SetOutputFile(LOG_FILE)
-	arcUpdater.DownloadChecksumFile()
 	logger.Log("---- Arc launcher initialized ----")
+	arcUpdater.DownloadChecksumFile()
 }
 
 func main() {
@@ -44,6 +41,7 @@ func routine() {
 }
 
 func startGuildWars2() {
+	logger.Log("Launching Guild Wars 2..")
 	exec.Command(updater.Gw2Exe).Start()
 }
 

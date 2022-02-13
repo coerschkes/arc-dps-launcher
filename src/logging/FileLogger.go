@@ -13,7 +13,7 @@ type FileLogger struct {
 	logFile string
 }
 
-const DEFAULT_LOG_FILE = "Log.log"
+const DEFAULT_LOG_FILE = "arc-launcher.log"
 
 func GetLogger(src string) Logger {
 	return &FileLogger{src, DEFAULT_LOG_FILE}
