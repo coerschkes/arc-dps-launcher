@@ -16,8 +16,7 @@ import (
 var fdLogger logging.Logger
 
 func init() {
-	logging.FileLogger.GetLogger("", LOG_LEVEL.INFO)
-	fdLogger = logging.GetLogger("fileDownloader.go", logging.LOG_LEVEL.INFO)
+	fdLogger = logging.GetLogger("fileDownloader.go")
 }
 
 /*

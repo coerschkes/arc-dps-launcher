@@ -22,7 +22,7 @@ var logger logging.Logger
 func init() {
 	tmpDir = utils.CreateTempFolder(updater.BinFolderPath)
 	arcUpdater = updater.NewArcUpdater(tmpDir)
-	logger = logging.GetLogger()
+	logger = logging.GetLogger("main.go")
 	logger.SetOutputFile(LOG_FILE)
 	arcUpdater.DownloadChecksumFile()
 	logger.Log("---- Arc launcher initialized ----")

@@ -5,6 +5,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/coerschkes/arc-dps-launcher/src/logging"
 	"github.com/coerschkes/arc-dps-launcher/src/utils"
 )
 
@@ -27,7 +28,7 @@ type ArcUpdaterImpl struct {
 var logger logging.Logger
 
 func init() {
-	logger = logging.GetLogger("arcUpdaterImpl.go", LOG_LEVEL.INFO)
+	logger = logging.GetLogger("arcUpdaterImpl.go")
 }
 
 func NewArcUpdater(tmpDir string) ArcUpdater {
@@ -66,5 +67,5 @@ func (au ArcUpdaterImpl) parseChecksum() string {
 	if err != nil {
 		panic(err)
 	}
-	return strings.Split(string(content), " ")[0]
+	return strings.Split(string(content), " ")[0] //TODO: check if string can be acessed as array
 }
