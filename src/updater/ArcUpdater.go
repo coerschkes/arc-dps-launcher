@@ -3,6 +3,7 @@ package updater
 /*
 	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
 */
+
 const Gw2Exe = "Gw2-64.exe"
 const BinFolderPath = "bin64"
 const d3d9Name = "d3d9.dll"
