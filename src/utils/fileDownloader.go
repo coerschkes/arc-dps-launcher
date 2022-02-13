@@ -12,24 +12,12 @@ import (
 /*
 	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
 */
-var logger logging.Logger
+
+var fdLogger logging.Logger
 
 func init() {
-	logger = logging.GetLogger()
-}
-
-/*
-	Creates a temporary directory inside of the specified root folder.
-
-	@param rootDir - path of the root directory
-	@return the path of the temporary directory
-*/
-func CreateTempFolder(rootDir string) string {
-	if dir, err := os.MkdirTemp(rootDir, "tmp"); err != nil {
-		panic(err)
-	} else {
-		return dir
-	}
+	logging.FileLogger.GetLogger("", LOG_LEVEL.INFO)
+	fdLogger = logging.GetLogger("fileDownloader.go", logging.LOG_LEVEL.INFO)
 }
 
 /*
@@ -40,32 +28,16 @@ func CreateTempFolder(rootDir string) string {
 	@param url - the file url
 	@param filePath - the target file path
 */
-func DownloadFile(url string, filePath string) {
+func DownloadFile(url string, path string) {
 	operateOnResponseBody(strings.ReplaceAll(url, "\\", "/"), func(body io.ReadCloser) {
-		OperateOnFile(filePath, func(file *os.File) {
+		OperateOnFile(path, func(file *os.File) {
 			if _, err := io.Copy(file, body); err != nil {
 				panic(err)
 			} else {
-				logger.Log("Downloaded file: " + url)
+				fdLogger.Log("Downloaded file: " + url)
 			}
 		})
 	})
-}
-
-/*
-	Opens or creates and opens a file at the specified path. Executes a defined function on the opened file.
-	Closes the file afterwards.
-
-	@param path - the path to the file
-	@param f - the function that will be executed on the file
-*/
-func OperateOnFile(path string, f func(file *os.File)) {
-	if file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE, 0666); err != nil {
-		panic(err)
-	} else {
-		f(file)
-		defer file.Close()
-	}
 }
 
 /*

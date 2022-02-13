@@ -12,6 +12,7 @@ import (
 /*
 	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
 */
+
 const LOG_FILE = "arc-launcher.log"
 
 var tmpDir string
