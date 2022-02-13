@@ -30,6 +30,7 @@ func (l FileLogger) Log(message string) {
 	}
 }
 
+
 func (l FileLogger) LogError(err error) {
 	if logFile, err := os.OpenFile(l.logFile, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0644); err != nil {
 		log.Panic(err)
