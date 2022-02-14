@@ -5,10 +5,9 @@ package updater
 */
 
 const Gw2Exe = "Gw2-64.exe"
-const d3d9Name = "d3d9.dll"
-const d3d9Md5Name = "d3d9.dll.md5sum"
-const d3d9Url = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll"
-const d3d9Md5Url = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll.md5sum"
+const checksumFile = "d3d9.dll.md5sum"
+const arcDpsUrl = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll"
+const checksumFileUrl = "https://www.deltaconnected.com/arcdps/x64/d3d9.dll.md5sum"
 
 /*
 	Interface for specifying an API to encapsulate the functionality regarding arc-dps.
@@ -47,4 +46,9 @@ type ArcUpdater interface {
 		Returns the installtion path of arc-dps.
 	*/
 	InstallationPath() string
+
+	/*
+		Returns the Dx version implementation that is used.
+	*/
+	GetVersion() string
 }

@@ -17,6 +17,8 @@ import (
 	The implementation for the Dx9 installation of the ArcUpdater interface.
 */
 
+const dx9ArcDpsName = "d3d9.dll"
+
 type ArcUpdaterDx9 struct {
 	binFolderPath string
 	logger        logging.Logger
@@ -37,24 +39,28 @@ func (au ArcUpdaterDx9) IsUpToDate() bool {
 
 func (au ArcUpdaterDx9) DownloadLatestVersion() {
 	au.logger.Log("Downloading latest arc-dps version")
-	utils.DownloadFile(d3d9Url, au.InstallationPath())
+	utils.DownloadFile(arcDpsUrl, au.InstallationPath())
 }
 
 func (au ArcUpdaterDx9) DownloadChecksumFile() {
 	au.logger.Log("Downloading arcdps checksum file")
-	utils.DownloadFile(d3d9Md5Url, d3d9Md5Name)
+	utils.DownloadFile(checksumFileUrl, checksumFile)
 }
 
 func (au ArcUpdaterDx9) InstallationPath() string {
-	return au.binFolderPath + "\\" + d3d9Name
+	return au.binFolderPath + "\\" + dx9ArcDpsName
 }
 
 func (au ArcUpdaterDx9) RemoveChecksumFile() {
-	os.Remove(d3d9Md5Name)
+	os.Remove(checksumFile)
+}
+
+func (au ArcUpdaterDx9) GetVersion() string {
+	return "DX9"
 }
 
 func (au ArcUpdaterDx9) parseChecksum() string {
-	content, err := ioutil.ReadFile(d3d9Md5Name)
+	content, err := ioutil.ReadFile(checksumFile)
 	if err != nil {
 		au.logger.LogError(err)
 		panic(err)

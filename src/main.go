@@ -11,13 +11,15 @@ import (
 	Author: https://github.com/dayc0re
 */
 
+const VERISON = "1.2.0"
+
 var arcUpdater updater.ArcUpdater
 var logger logging.Logger
 
 func init() {
 	arcUpdater = updater.NewArcUpdaterDx9()
 	logger = logging.GetLogger("main.go")
-	logger.Log("---- Arc launcher initialized ----")
+	logger.Log("---- Arc launcher v." + VERISON + " initialized (" + arcUpdater.GetVersion() + ") ----")
 	arcUpdater.DownloadChecksumFile()
 }
 
