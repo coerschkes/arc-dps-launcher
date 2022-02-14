@@ -1,6 +1,6 @@
 # arc-dps-launcher
 
-The base idea of this project is to provide a simple method of updating the [GuildWars2](https://www.guildwars2.com) tool [arcdps, a gw2 dps meter (and general combat metrics tool)](https://www.deltaconnected.com/arcdps/).
+The base idea of this project is to provide a simple method of updating the [GuildWars2](https://www.guildwars2.com) tool [arcdps](https://www.deltaconnected.com/arcdps/).
 
 ## Reason for development
 
