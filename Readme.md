@@ -20,4 +20,6 @@ I developed a lot of versions of this idea in the past few years starting with a
 
 ## Installation
 
-Simply download the latest pre-compiled binaries from the release-section (either for Dx9 or Dx11) and place it in the same folder your Gw2.exe is located. If you want the fancy way create a link on your desktop so you can launch GuildWars2 with the arc-dps-updater from there.
+* Download current version from the release-section (either Dx9 or Dx11 version)
+* Place the downloaded arc-dps-v.X.X.X-dX.exe in the same folder where the Guild Wars 2 .exe is located
+* Optional: create a link on the desktop
