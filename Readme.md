@@ -23,3 +23,7 @@ I developed a lot of versions of this idea in the past few years starting with a
 * Download current version from the release-section (either Dx9 or Dx11 version)
 * Place the downloaded arc-dps-v.X.X.X-dX.exe in the same folder where the Guild Wars 2 .exe is located
 * Optional: create a link on the desktop
+
+## Contact
+
+In case any kind of problems occur you can contact me on discord (Dâycore#2075). Any kind of feedback is appreciated aswell, cheers :)
