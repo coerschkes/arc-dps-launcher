@@ -23,11 +23,3 @@ I developed a lot of versions of this idea in the past few years starting with a
 ### Pre-compiled binaries:
 
 Simply download the latest pre-compiled binaries from the release-section and place it in the same folder your Gw2.exe is located and your ready to go :) If you want the fancy way create a link on your desktop so you can launch GuildWars2 with the arc-dps-updater from there.
-
-### Self-compiled binaries:
-
-For those of you being familiar with coding or at least having a little understanding of it and the ones being sceptic about downloading and executing pre-compiled binaries, I got you covered ;) Before you can compile it yourself you obviously need to install GO. I recommend following the steps on https://go.dev/doc/install. Once GO is installed you are almost ready to GO hrhr.  Just clone the repository/download it as a zip, navigate to the main.go file and open a terminal. Type in 
-
-    go build
-
-and it should compile the binaries. From here its just the same steps as for the pre-compiled binaries, cheers! :) 
