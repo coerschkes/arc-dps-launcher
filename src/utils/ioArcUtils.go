@@ -10,7 +10,7 @@ import (
 )
 
 /*
-	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
+	Author: https://github.com/dayc0re
 */
 
 var auLogger logging.Logger

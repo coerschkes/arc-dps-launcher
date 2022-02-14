@@ -1,7 +1,7 @@
 package updater
 
 /*
-	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
+	Author: https://github.com/dayc0re
 */
 
 const Gw2Exe = "Gw2-64.exe"

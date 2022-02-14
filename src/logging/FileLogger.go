@@ -6,7 +6,7 @@ import (
 )
 
 /*
-	Author: Christian Oerschkes <christian.oerschkes@hotmail.de>
+	Author: https://github.com/dayc0re
 */
 type FileLogger struct {
 	srcFile string
