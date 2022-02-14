@@ -5,8 +5,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/coerschkes/arc-dps-launcher/src/logging"
-	"github.com/coerschkes/arc-dps-launcher/src/utils"
+	"github.com/dayc0re/arc-dps-launcher/src/logging"
+	"github.com/dayc0re/arc-dps-launcher/src/utils"
 )
 
 /*
