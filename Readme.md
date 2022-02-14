@@ -16,7 +16,6 @@ I developed a lot of versions of this idea in the past few years starting with a
 * Installs Arc-Dps if necessary
 * Keeps up to date version of Arc-Dps
 * Launches GuildWars2
-* Start-Screen (coming soon!)
 
 ## Installation
 
