@@ -27,3 +27,7 @@ I developed a lot of versions of this idea in the past few years starting with a
 ## Contact
 
 In case any kind of problems occur you can contact me on discord (Dâycore#2075). Any kind of feedback is appreciated aswell, cheers :)
+
+##Contribution
+
+Icon created by [Triangle Squad](https://www.flaticon.com/free-icons/rocket)
