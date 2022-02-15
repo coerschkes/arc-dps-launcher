@@ -30,4 +30,4 @@ In case any kind of problems occur you can contact me on discord (Dâycore#2075)
 
 ## Contribution
 
-Icon created by [Triangle Squad](https://www.flaticon.com/free-icons/rocket)
+Icon found on [flatcion.com](https://www.flaticon.com/free-icons/rocket) created by Triangle Squad
